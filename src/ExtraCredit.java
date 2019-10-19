@@ -1,4 +1,6 @@
-
+/***
+ * Grading comments:  Very well done.
+ */
 public class ExtraCredit {
 	public static final int SIZE = 4;
 
