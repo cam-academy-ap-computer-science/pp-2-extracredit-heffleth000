@@ -1,47 +1,70 @@
 
 public class ExtraCredit {
+	public static final int SIZE = 4;
 
 	public static void main(String[] args) {
 		tip();
-		line();
-		top();
-	/*	line();
-		bottom();
-		line();
-		smoke(); */
+		tophalf();
+		bottomhalf();
+		tip();
+		body();
+		tophalf(); 
 	}
-	//will print the line of = and * printed multiple times in rocket - works
-	public static void line() {
-		System.out.print("+");
-		for (int x = 1; x <= 6; x++) {
-			System.out.print("=*");
-		}
-		System.out.println("+");
-	}
-	//creates tip of rocket - works
+	
+	//makes the straight tip of needle
 	public static void tip() {
-		for (int i = 1; i <= 5; i ++) {
-			for (int space = 5; space >= i; space--) {		//prints out spaces
+		for (int tip = 1; tip <= SIZE; tip++) {
+			for (int spaces = 1; spaces <= 3 * SIZE; spaces++) {
 				System.out.print(" ");
 			}
-			for (int fslash = 1; fslash <= i; fslash++) {	//prints out forward slashes
-				System.out.print("/");
-			}
-			System.out.print("**");							//prints out stars in middle
-			for (int bslash = 1; bslash <= i; bslash++) {	//prints out backslashes
-				System.out.print("\\");
-			}
-			System.out.println("");
+			System.out.println("||");
 		}
 	}
-	//creats top half of rocket
-	public static void top() {
-		for (y = 1; y <= 6; y++) {
-			System.out.print("|");;
-			for (dot = 2; dot >= 1; dot--) {
-				System.out.print(".");
+	//creates the triangle shaped part that points upward - used twice
+	public static void tophalf() {
+		for (int top = SIZE; top >= 1; top--) {
+			for (int space = 1; space <= (3 * top) - 3; space++) {
+				System.out.print(" ");
 			}
+			System.out.print("__/");
+			for (int dots = SIZE - top; dots >= 1; dots--) {
+				System.out.print(":::");
+			}
+			System.out.print("||");
+			for (int dots = SIZE - top; dots >= 1; dots--) {
+				System.out.print(":::");
+			}
+			System.out.println("\\__");
+		}
+		System.out.print("|");
+		for (int quote = 1; quote <= SIZE * 6 ; quote++) {
+			System.out.print("\"");
+		}
+		System.out.println("|");
+	}
+	//creates bottom half of the top block
+	public static void bottomhalf() {
+		for (int bottom = SIZE + 1; bottom > 1; bottom--) {
+			for (int space = bottom; space <= SIZE ; space++) {
+				System.out.print("  ");
+			}
+			System.out.print("\\_");
+			for (int slashes = 2 * bottom + 1; slashes >= 1; slashes--) {
+				System.out.print("/\\");
+			}
+			System.out.println("_/");
 		}
 	}
+	//creates long stretch of the tower
+	public static void body() {
+		for (int body = SIZE * SIZE; body >= 1; body--) {
+			for (int spaces = 2 * SIZE + 1; spaces >= 1; spaces--) {
+				System.out.print(" ");
+			}
+			System.out.println("|%%||%%|");
+		}
+	}
+}
+
 	
 	
